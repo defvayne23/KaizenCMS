@@ -186,11 +186,11 @@ ob_end_clean();
 
 preg_match_all('/{head}(.*){\/head}/isU', $sOutput, $head_matches);
 $sOutput = preg_replace('/{head}(.*){\/head}/isU', '', $sOutput);
-str_replace('</head>', implode("\n", array_unique($head_matches[1]))."\n".'</head>', $sOutput);
+$sOutput = str_replace('</head>', implode("\n", array_unique($head_matches[1]))."\n".'</head>', $sOutput);
 
 preg_match_all('/{footer}(.*){\/footer}/isU', $sOutput, $footer_matches);
 $sOutput = preg_replace('/{footer}(.*){\/footer}/isU', '', $sOutput);
-str_replace('</body>', implode("\n", array_unique($footer_matches[1]))."\n".'</body>', $sOutput);
+$sOutput = str_replace('</body>', implode("\n", array_unique($footer_matches[1]))."\n".'</body>', $sOutput);
 
 echo $sOutput;
 ##############################################
