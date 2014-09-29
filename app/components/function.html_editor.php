@@ -8,7 +8,7 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 
 	$content = stripslashes($content);
 
-	$return = "@@@SMARTY:FOOTER:BEGIN@@@\n";
+	$return = "{footer}\n";
 	$return .= "<script>if(typeof(tinymce) === 'undefined') { document.write('<script src=\"/js/tiny_mce/jquery.tinymce.js\"><\/script><script src=\"/js/tiny_mce/tiny_mce.js\"><\/script>'); }</script>\n";
 	$return .= "<script type='text/javascript' src='/js/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php'></script>\n";
 	$return .= "<script type='text/javascript'>\n";
@@ -60,7 +60,7 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 	$return .= "\t\t$('.tinymce-toggle .html_tab').addClass('active');\n";
 	$return .= "}\n";
 	$return .= "</script>\n";
-	$return .= "@@@SMARTY:FOOTER:END@@@\n";
+	$return .= "{/footer}\n";
 	$return .= "\t<label class=\"control-label pull-left\" for=\"".$name."_editor\">".$label."</label>\n";
 	$return .= "\t<ul class=\"nav nav-tabs pull-right tinymce-toggle\" style=\"margin-bottom: 0; border-bottom: 0;\"><li class=\"visual_tab active\"><a href=\"javascript:toggleEditorVisual('".$name."_editor');\">Visual</a></li><li class=\"html_tab\"><a href=\"javascript:toggleEditorHTML('".$name."_editor');\">HTML</a></li></ul>\n";
 	$return .= "\t<div class=\"controls\">\n";
