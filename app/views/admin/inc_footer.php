@@ -2,9 +2,6 @@
 			</div><!--/span-->
 		</div><!--/row-->
 
-		{footer}
-			Test
-		{/footer}
 		<hr>
 		<footer>
 			<p class="pull-left">&copy; <?= date("Y") ?>, All Rights Reserved.</p>
