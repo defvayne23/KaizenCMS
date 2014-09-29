@@ -39,7 +39,7 @@ $('.data-table').dataTable({
 	"aaSorting": [[ 0, "asc" ]], //which column to sort by (0-X)
 	"iDisplayLength": 10 //how many items to display per page
 });
-$('.dataTable-header').prepend('{foreach from=$aAdminFullMenu item=aMenu key=k}{if $k == $menu}{if $aMenu.menu|@count gt 1}<ul class="nav nav-pills">{foreach from=$aMenu.menu item=aItem}<li{if $subMenu == $aItem.text} class="active"{/if}><a href="{$aItem.link}" title="{$aItem.text}">{$aItem.text}</a></li>{/foreach}</ul>{/if}{/if}{/foreach}');
+$('.dataTable-header').prepend('<?php foreach($aAdminFullMenu as $k=>$aMenu) { if($k == $menu) { if(count($aMenu['menu']) > 1) { echo '<ul class="nav nav-pills">'; foreach($aMenu['menu'] as $aItem) { echo '<li'; if($subMenu == $aItem['text']) { echo ' class="active"'; } echo '><a href="'.$aItem['link'].' title="'.$aItem['text'].'">'.$aItem['text'].'</a></li>'; } echo '</ul>'; } } } ?>');
 </script>
 {/footer}
 <?php $this->tplDisplay("inc_footer.php"); ?>
